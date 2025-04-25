@@ -1,0 +1,119 @@
+:root {
+  --color-primary: #1e3a8a;
+  --color-secondary: #2563eb;
+  --color-bg: #f9fafb;
+  --color-card: #ffffff;
+  --color-text: #111827;
+  --radius: 0.5rem;
+  --spacing: 1rem;
+  --shadow: 0 4px 12px rgba(0,0,0,0.05);
+  --font-sans: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--color-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--color-primary);
+}
+
+header {
+  background: var(--color-primary);
+  color: #fff;
+  padding: var(--spacing);
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.container {
+  max-width: 900px;
+  margin: calc(var(--spacing)*2) auto;
+  padding: var(--spacing);
+}
+
+.card {
+  background: var(--color-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--spacing);
+  margin-bottom: calc(var(--spacing)*1.5);
+}
+
+button {
+  display: inline-block;
+  background: var(--color-secondary);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+button:hover {
+  background: var(--color-primary);
+  transform: translateY(-1px);
+}
+button:active {
+  transform: translateY(0);
+}
+
+form {
+  display: grid;
+  gap: var(--spacing);
+}
+form label {
+  font-weight: 600;
+}
+form input[type="text"],
+form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  resize: vertical;
+}
+form textarea {
+  min-height: 150px;
+}
+
+/* Listas */
+ul.politicas {
+  list-style: none;
+}
+ul.politicas li {
+  padding: var(--spacing);
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+ul.politicas li:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin: var(--spacing) 1rem;
+    padding: var(--spacing);
+  }
+  header {
+    font-size: 1.25rem;
+  }
+}

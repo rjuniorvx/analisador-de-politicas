@@ -1,0 +1,41 @@
+{% extends 'adpApp/base.html' %}
+{% load static %}
+
+{% block title %}{{ politica.titulo }}{% endblock %}
+
+{% block content %}
+<section class="card">
+  <h2>Conteúdo da Política</h2>
+  <pre style="white-space: pre-wrap;">{{ politica.conteudo }}</pre>
+</section>
+
+<section class="card">
+  <h2>Análise Simplificada</h2>
+  <div id="analise-area">
+    {% if politica.analise %}
+      <p id="analise-resultado" style="white-space: pre-wrap;">
+        {{ politica.analise.resultado }}
+      </p>
+      <small>Analisado em {{ politica.analise.analisado_em|date:"d/m/Y H:i" }}</small>
+    {% else %}
+      <div class="analysis-actions" style="text-align: center;">
+        <button id="btn-analisar" data-pk="{{ politica.id }}">
+          Analisar Política
+        </button>
+        <div id="analise-spinner" class="spinner" style="display:none; margin-top:1rem;">
+          Carregando…
+        </div>
+      </div>
+      <p id="analise-resultado" style="margin-top:1rem;"></p>
+    {% endif %}
+  </div>
+</section>
+
+<div class="text-center mt-3">
+  <a href="{% url 'listar_politicas' %}">← Voltar à Lista</a>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+  <script src="{% static 'js/main.js' %}"></script>
+{% endblock %}

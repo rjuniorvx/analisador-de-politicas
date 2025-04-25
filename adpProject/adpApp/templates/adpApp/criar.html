@@ -1,0 +1,18 @@
+{% extends 'adpApp/base.html' %}
+
+{% block title %}Criar Nova Política{% endblock %}
+
+{% block content %}
+<section class="card">
+  <h2>Nova Política</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar</button>
+  </form>
+</section>
+
+<div class="text-center mt-3">
+  <a href="{% url 'listar_politicas' %}">← Voltar à Lista</a>
+</div>
+{% endblock %}

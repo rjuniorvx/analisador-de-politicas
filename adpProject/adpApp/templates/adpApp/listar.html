@@ -1,0 +1,26 @@
+{% extends 'adpApp/base.html' %}
+
+{% block title %}Lista de Políticas{% endblock %}
+
+{% block content %}
+<section class="card">
+  <h2>Políticas Cadastradas</h2>
+  {% if politicas %}
+    <ul class="lista-politicas">
+      {% for politica in politicas %}
+        <li>
+          <a href="{% url 'ver_politica' politica.pk %}">
+            {{ politica.titulo }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Nenhuma política cadastrada ainda.</p>
+  {% endif %}
+</section>
+
+<div class="text-center mt-3">
+  <a class="btn" href="{% url 'criar_politica' %}">+ Criar Nova Política</a>
+</div>
+{% endblock %}
