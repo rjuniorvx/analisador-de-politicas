@@ -10,5 +10,4 @@ Esta deverá ser declarada em um arquivo .env, dentro do projeto.
 ```bash
 python -m pipenv shell
 
-```bash
 pip install --- (Dependências presentes no Pipfile)
